@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+android {
+    compileSdkVersion 23
+    buildToolsVersion "24.0.2"
+
+    defaultConfig {
+        applicationId "kankan.wheel.demo"
+        minSdkVersion 5
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+
+    sourceSets {
+        main {
+            assets.srcDirs = ['assets']
+            res.srcDirs = ['res']
+            aidl.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            java.srcDirs = ['src']
+            jni.srcDirs = ['jni']
+            jniLibs.srcDirs = ['libs']
+            manifest.srcFile 'AndroidManifest.xml'
+        }
+
+        instrumentTest {
+            assets.srcDirs = ["tests/assets"]
+            res.srcDirs = ["tests/res"]
+            resources.srcDirs = ["tests/src"]
+            java.srcDirs = ["tests/src"]
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile project(':wheel')
+}
