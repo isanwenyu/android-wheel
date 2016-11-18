@@ -41,4 +41,6 @@ android {
     dependencies {
         compile fileTree(include: ['*.jar'], dir: 'libs')
     }
+
+    apply from: './gradle-repo-push.gradle'
 }
